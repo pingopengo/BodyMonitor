@@ -58,6 +58,7 @@ public class bMonitor
                 Warning heartRateWarning = new Warning("Heart rate is normal for children.", true, 0);
                 Console.WriteLine(heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
         }
         else if (age >= 8 && age <= 17)
@@ -67,12 +68,14 @@ public class bMonitor
                 Warning heartRateWarning = new Warning("❗️Heart rate is out of normal range for teenagers.", false, 2);
                 Console.WriteLine("WARNING: " + heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
             else
             {
                 Warning heartRateWarning = new Warning("Heart rate is normal for teenagers.", true, 0);
                 Console.WriteLine(heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
         }
         else if (age >= 18 && age <= 65)
@@ -82,12 +85,14 @@ public class bMonitor
                 Warning heartRateWarning = new Warning("❗️Heart rate is out of normal range for adults.", false, 1);
                 Console.WriteLine("WARNING: " + heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
             else
             {
                 Warning heartRateWarning = new Warning("Heart rate is normal for adults.", true, 0);
                 Console.WriteLine(heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
         }
         else
@@ -97,12 +102,14 @@ public class bMonitor
                 Warning heartRateWarning = new Warning("❗️Heart rate is out of normal range for seniors.", false, 2);
                 Console.WriteLine("WARNING: " + heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
             else
             {
                 Warning heartRateWarning = new Warning("Heart rate is normal for seniors.", true, 0);
                 Console.WriteLine(heartRateWarning.message);
                 // Do something else with the heartRateWarning object, like logging it or notifying the user.
+                DBC.LogWarning(heartRateWarning);
             }
         }
     }
@@ -114,12 +121,14 @@ public class bMonitor
             Warning bloodPressureWarning = new Warning("❗️Blood pressure is out of normal range.", false, 1);
             Console.WriteLine("WARNING: " + bloodPressureWarning.message);
             // Do something else with the bloodPressureWarning object, like logging it or notifying the user.
+            DBC.LogWarning(bloodPressureWarning);
         }
         else
         {
             Warning bloodPressureWarning = new Warning("Blood pressure is normal.", true, 0);
             Console.WriteLine(bloodPressureWarning.message);
             // Do something else with the bloodPressureWarning object, like logging it or notifying the user.
+            DBC.LogWarning(bloodPressureWarning);
         }
     }
 }

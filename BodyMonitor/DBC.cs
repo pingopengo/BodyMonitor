@@ -5,22 +5,46 @@ using Microsoft.Extensions.Configuration;
 
 public class DBC
 {
-    private static string? GetConnectionString()
+    private readonly IConfiguration _configuration;
+
+    public DBC()
     {
-        var builder = new ConfigurationBuilder();
-            // .SetBasePath(Directory.GetCurrentDirectory())
-            // .AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
-            builder.AddUserSecrets<DBC>();
-        var configuration = builder.Build();
-        return configuration.GetConnectionString("DefaultConnection");
-        
+        var builder = new ConfigurationBuilder()
+            .AddUserSecrets<DBC>();
+        _configuration = builder.Build();
+    }
+
+    private string? connect()
+    {
+        string? connString = _configuration["ConnectionString"];
+        return connString;
     }
     
+    public static void TestConnection()
+    {
+        var db = new DBC();
+        var connection = new MySqlConnection(db.connect());
+        try
+        {
+            connection.Open();
+            Console.WriteLine("Connection opened");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        finally
+        {
+            connection.Close();
+            Console.WriteLine("Connection closed");
+        }
+    }
     
     public static void LogWarning(Warning warning)
     {
-        var connString = GetConnectionString();
-
+        var db = new DBC();
+        string? connString = db.connect();
+        
         if (connString != null)
         {
             var connection = new MySqlConnection(connString);
