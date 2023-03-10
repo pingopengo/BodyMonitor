@@ -20,26 +20,6 @@ public class DBC
         return connString;
     }
     
-    public static void TestConnection()
-    {
-        var db = new DBC();
-        var connection = new MySqlConnection(db.connect());
-        try
-        {
-            connection.Open();
-            Console.WriteLine("Connection opened");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-        finally
-        {
-            connection.Close();
-            Console.WriteLine("Connection closed");
-        }
-    }
-    
     public static void LogWarning(Warning warning)
     {
         var db = new DBC();
