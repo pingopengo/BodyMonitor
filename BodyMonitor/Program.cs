@@ -5,4 +5,3 @@ using BodyMonitor;
 bMonitor bw = new bMonitor(39, 70, 120, 20); 
 bw.CheckBodyState();
 
-DBC.TestConnection();
